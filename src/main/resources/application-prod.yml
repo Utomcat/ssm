@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.78.202.147:3306/test?useUnicode=true&characterEncoding=UTF-8&userSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+
+# 配置服务器端口
+server:
+  port: 8083
+
+# 配置正式环境中的日志输出打印级别,日志打印级别 TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+logging:
+  level:
+   root: ERROR
