@@ -1,2 +1,2 @@
 # ssm
-spring boot + mybatis/mybatis-plus
+spring boot + mybatis/mybatis-plus 学习案例
