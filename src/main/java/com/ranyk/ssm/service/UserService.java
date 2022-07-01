@@ -18,8 +18,16 @@ import java.util.List;
 @Service
 public class UserService {
 
+    /**
+     * 用户数据库操作对象
+     */
     private UserMapper userMapper;
 
+    /**
+     * 用户数据库操作对象注入 set 方法
+     *
+     * @param userMapper 数据库操作对象
+     */
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;

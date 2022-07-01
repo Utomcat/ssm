@@ -24,7 +24,9 @@ public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 3559914667481191591L;
 
-
+    /**
+     * 数据主键ID
+     */
     private Integer id;
     /**
      * 姓名
