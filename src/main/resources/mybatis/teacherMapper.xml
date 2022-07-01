@@ -3,11 +3,36 @@
 <mapper namespace="com.ranyk.ssm.mapper.TeacherMapper">
 
     <resultMap id="teachingVo" type="com.ranyk.ssm.vo.TeacherTeachingVo">
-        
+        <association property="teacher" javaType="com.ranyk.ssm.entity.Teacher">
+            <id column="id" javaType="INTEGER" property="id" />
+            <result column="name" javaType="STRING" property="name" />
+        </association>
+        <collection property="courses" ofType="com.ranyk.ssm.vo.CourseSelectionVo">
+
+        </collection>
+    </resultMap>
+    <resultMap id="courses" type="com.ranyk.ssm.vo.CourseSelectionVo">
+        <association property="course" javaType="com.ranyk.ssm.entity.Course">
+            <result column="course_id" javaType=""
+        </association>
     </resultMap>
 
-
+    <!-- 通过教师ID,查询该教师对应的教学课程和对应课程选修的学生信息 -->
     <select id="selectTeachingInfoByTeacherId" resultMap="teachingVo">
-
+        select t.id,
+               t.name,
+               cs.course_id,
+               c.name course_name,
+               c.teacher_id,
+               cs.student_id,
+               cs.student_id,
+               s.name student_name
+        from teacher t
+                 left join course c on t.id = c.teacher_id
+                 left join course_student cs on c.id = cs.course_id
+                 left join student s on s.id = cs.student_id
+        <where>
+            t.id = #{teacherId}
+        </where>
     </select>
 </mapper>
